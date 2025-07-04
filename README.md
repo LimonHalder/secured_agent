@@ -18,7 +18,7 @@ This project combines the flexibility of LangChain with the stateful flow contro
 ### 1. Clone the Repo
 
 ```bash
-git clone https://github.com/yourusername/secure-langgraph-agent.git
+git clone https://github.com/LimonHalder/secured_agent.git
 cd secure-langgraph-agent
 ````
 
@@ -41,7 +41,7 @@ pip install -r requirements.txt
 Create a `.env` file in the root directory with the following:
 
 ```env
-OPENAI_API_KEY=your_openai_api_key
+GROQ_API_KEY=your_GROQ_api_key
 TAVILY_API_KEY=your_tavily_api_key
 ```
 
@@ -122,5 +122,4 @@ MIT License
 
 ```
 
-Let me know if you'd like this converted into a downloadable file.
 ```
