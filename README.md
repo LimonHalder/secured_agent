@@ -82,7 +82,7 @@ SecureAgentWrapper – Custom wrapper for logging and threat filtering
 Python Logging – Centralized logging configuration
 
 Project Structure
-
+```
 SECURITY_WRAPPER/
 ├── config/
 │   └── env_loader.py               # Loads environment variables from .env
@@ -108,3 +108,4 @@ SECURITY_WRAPPER/
 ├── requirements.txt               # Python dependencies
 ├── security.log                   # Runtime logs (auto-generated)
 └── README.md
+```
