@@ -1,0 +1,13 @@
+langchain>=0.1.0
+langgraph>=0.0.18
+openai>=1.0.0
+python-dotenv>=1.0.0
+tqdm>=4.66.0
+tenacity>=8.2.3
+python-dotenv
+langchain-core 
+langchain-community 
+langchain-openai
+langchain_groq
+tools
+langchain_tavily
