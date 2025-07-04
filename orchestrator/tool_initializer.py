@@ -27,5 +27,5 @@ def init_search_tool() -> Optional[TavilySearch]:
         return search_tool
 
     except Exception as e:
-        logger.exception(f"TavilySearch initialization failed.")
+        logger.exception(f"TavilySearch initialization failed:{e}")
         return None

@@ -37,7 +37,7 @@ def main():
     secure_agent = SecureAgentWrapper(agent)
 
     # Example interaction
-    for step in secure_agent.stream({"messages": "Weather in Khulna?"}, stream_mode="values"):
+    for step in secure_agent.stream({"messages": "What is the weather in Dhaka?"}, stream_mode="values"):
         msg = step["messages"][-1]
         logger.info(f"Response: {getattr(msg, 'content', str(msg))}")
         response_handler(msg)

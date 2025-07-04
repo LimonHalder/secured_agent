@@ -7,7 +7,7 @@ It defines the message state structure, builds nodes and edges for LangGraph, an
 Author: Limon Halder
 """
 
-from typing import Annotated, TypedDict, Optional, Union
+from typing import Annotated, TypedDict, Optional
 from langgraph.graph import StateGraph, START, END
 from langgraph.graph.message import add_messages
 from langgraph.prebuilt import ToolNode, tools_condition
@@ -28,7 +28,7 @@ class State(TypedDict):
 
 def build_agent(
     llm_node: Runnable,
-    search_tool: Optional[Tool] = None
+    search_tool: Optional[Tool] = None,
 ) -> Optional[Runnable]:
     """
     Constructs a LangGraph agent by wiring up LLM and tool nodes.

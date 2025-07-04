@@ -67,6 +67,23 @@ python run_threat_tests.py
 
 This will trigger the security wrappers and log results accordingly.
 
+
+Logging & Monitoring
+All agent activity—including inputs, outputs, detected threats, errors, and warnings—is logged to secureit.log in the project root. Logs include timestamps and log levels and are saved with UTF-8 encoding.
+
+To monitor logs live on Windows PowerShell, run:
+
+powershell
+
+```bash
+Get-Content .\secureit.log -Wait
+```
+
+This logging ensures traceability, security auditing, and easier debugging.
+
+
+
+
 ## 🧰 Tech Stack
 
 * **LangChain** – LLM chains and tool integrations

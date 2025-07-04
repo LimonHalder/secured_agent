@@ -15,10 +15,10 @@ logger = logging.getLogger("SecurityLogger")
 logger.setLevel(logging.DEBUG)
 
 # Define log message format
-formatter = logging.Formatter('%(asctime)s | %(levelname)s | %(message)s')
+formatter = logging.Formatter("%(asctime)s | %(levelname)s | %(message)s")
 
 # Log to a file with UTF-8 encoding
-file_handler = logging.FileHandler("security.log", encoding='utf-8')
+file_handler = logging.FileHandler("security.log", encoding="utf-8")
 file_handler.setFormatter(formatter)
 logger.addHandler(file_handler)
 

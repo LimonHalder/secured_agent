@@ -17,7 +17,9 @@ from typing import Dict, List, Pattern
 from logger.logger import log_threat
 
 
-def load_threat_patterns_from_yaml(path: str = "wrapper/config.yml") -> Dict[str, List[str]]:
+def load_threat_patterns_from_yaml(
+    path: str = "wrapper/config.yml",
+) -> Dict[str, List[str]]:
     """
     Load raw threat patterns from a YAML file.
 
@@ -39,7 +41,9 @@ def load_threat_patterns_from_yaml(path: str = "wrapper/config.yml") -> Dict[str
         return {}
 
 
-def compile_threat_patterns(raw_patterns: Dict[str, List[str]]) -> Dict[str, List[Pattern]]:
+def compile_threat_patterns(
+    raw_patterns: Dict[str, List[str]]
+) -> Dict[str, List[Pattern]]:
     """
     Compile raw regex strings into regex Pattern objects.
 
@@ -59,9 +63,15 @@ def compile_threat_patterns(raw_patterns: Dict[str, List[str]]) -> Dict[str, Lis
                     compiled_pattern = re.compile(p, re.IGNORECASE)
                     compiled[threat_name].append(compiled_pattern)
                 except re.error as e:
-                    print(f"⚠️ Warning: Invalid regex pattern '{p}' for threat '{threat_name}': {e}")
+                    print(
+                        f"⚠️ Warning: Invalid regex pattern '{p}' for threat "
+                        f"'{threat_name}': {e}"
+                    )
         else:
-            print(f"⚠️ Warning: Patterns for threat '{threat_name}' should be a list, got {type(patterns)}")
+            print(
+                f"⚠️ Warning: Patterns for threat '{threat_name}' should be a list, "
+                f"got {type(patterns)}"
+            )
 
     return compiled
 
@@ -101,8 +111,7 @@ def check_for_threats(text: str, stage: str = "input") -> bool:
         "Prompt Injection",
         "Data Exfiltration",
         "Social Engineering",
-        "Unauthorized Access"
+        "Unauthorized Access",
     }
 
     return not any(threat in critical_threats for threat in threats_found)
-

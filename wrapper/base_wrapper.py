@@ -20,7 +20,9 @@ from wrapper.threat_detector import check_for_threats
 from logger.logger import logger, log_input, log_output, log_threat
 
 
-def extract_text_from_messages(messages: Union[List[Any], Dict[str, Any], Any]) -> str:
+def extract_text_from_messages(
+    messages: Union[List[Any], Dict[str, Any], Any]
+) -> str:
     """
     Extracts and concatenates content text from LLM-style message objects.
 
@@ -73,13 +75,16 @@ class SecureAgentWrapper:
         """
         self.agent = agent
 
-    def stream(self, *args: Any, **kwargs: Any) -> Generator[Dict[str, Any], None, None]:
+    def stream(
+        self, *args: Any, **kwargs: Any
+    ) -> Generator[Dict[str, Any], None, None]:
         """
         Securely stream responses from the agent with input/output threat checks.
 
         Args:
             *args (Any): Positional arguments to pass to the agent's stream method.
-            **kwargs (Any): Keyword arguments, must include `messages` key or pass messages as first arg.
+            **kwargs (Any): Keyword arguments, must include `messages` key or
+                pass messages as first arg.
 
         Yields:
             Dict[str, Any]: A dictionary containing streaming message data from the agent.
@@ -91,7 +96,10 @@ class SecureAgentWrapper:
             log_threat("Blocked input due to threat detection", input_data, "input")
             yield {
                 "messages": [
-                    {"role": "system", "content": "⚠️ Input blocked due to security concerns."}
+                    {
+                        "role": "system",
+                        "content": "⚠️ Input blocked due to security concerns.",
+                    }
                 ]
             }
             return
@@ -110,10 +118,17 @@ class SecureAgentWrapper:
                     log_output(output_data)
 
                     if not check_for_threats(output_text, stage="output"):
-                        log_threat("Blocked output due to threat detection", output_text, "output")
+                        log_threat(
+                            "Blocked output due to threat detection",
+                            output_text,
+                            "output",
+                        )
                         yield {
                             "messages": [
-                                {"role": "system", "content": "⚠️ Output blocked due to security concerns."}
+                                {
+                                    "role": "system",
+                                    "content": "⚠️ Output blocked due to security concerns.",
+                                }
                             ]
                         }
                         return
@@ -124,4 +139,7 @@ class SecureAgentWrapper:
                     logger.exception(f"Error during streaming yield: {yield_error}")
         finally:
             elapsed_time = time.time() - start_time
-            logger.info(f"Stream completed in {elapsed_time:.2f} seconds | Messages processed: {message_count}")
+            logger.info(
+                f"Stream completed in {elapsed_time:.2f} seconds | "
+                f"Messages processed: {message_count}"
+            )

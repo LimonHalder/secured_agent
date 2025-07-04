@@ -1,4 +1,4 @@
-from typing import Dict, Any, TypedDict, List
+from typing import Any, Dict, List, TypedDict
 from langchain_core.messages import AIMessage, BaseMessage
 from logger.logger import log_input, log_output, logger
 
@@ -29,7 +29,8 @@ class LLMNode:
         Invokes the LLM with the current conversation state.
 
         Args:
-            state (StateType): A dictionary containing a list of messages under the "messages" key.
+            state (StateType): A dictionary containing a list of messages under the
+                "messages" key.
 
         Returns:
             StateType: A new state dictionary with the response appended as the latest message.
@@ -46,4 +47,10 @@ class LLMNode:
 
         except Exception as e:
             logger.exception("LLM invocation failed.")
-            return {"messages": [AIMessage(content="⚠️ An internal error occurred during LLM processing.")] }
+            return {
+                "messages": [
+                    AIMessage(
+                        content="⚠️ An internal error occurred during LLM processing."
+                    )
+                ]
+            }
