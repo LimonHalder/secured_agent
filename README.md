@@ -19,7 +19,7 @@ This project combines the flexibility of LangChain with the stateful flow contro
 
 ```bash
 git clone https://github.com/LimonHalder/secured_agent.git
-cd secure-langgraph-agent
+cd secured_agent
 ````
 
 ### 2. Setup Python Environment
