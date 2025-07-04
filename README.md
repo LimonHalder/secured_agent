@@ -56,8 +56,9 @@ This script tests whether malicious or suspicious inputs are correctly identifie
 
 ```bash
 python tests\test_threat.py
-Test results will be printed and also logged.
 ```
+Test results will be printed and also logged.
+
 
 Logging and Monitoring
 All activity—such as user inputs, LLM responses, detected threats, errors, and warnings—is saved to a file called security.log in the root directory. Each log entry includes a timestamp and severity level.
