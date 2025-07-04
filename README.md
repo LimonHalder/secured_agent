@@ -108,5 +108,3 @@ SECURITY_WRAPPER/
 ├── requirements.txt               # Python dependencies
 ├── security.log                   # Runtime logs (auto-generated)
 └── README.md
-
-
