@@ -82,9 +82,7 @@ SecureAgentWrapper – Custom wrapper for logging and threat filtering
 Python Logging – Centralized logging configuration
 
 Project Structure
-pgsql
-Copy
-Edit
+
 SECURITY_WRAPPER/
 ├── config/
 │   └── env_loader.py               # Loads environment variables from .env
